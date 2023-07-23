@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import NavbarWithSidebar from "@/components/NavbarWithSidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
-        <Navbar />
+        <NavbarWithSidebar />
         {children}
       </body>
     </html>
