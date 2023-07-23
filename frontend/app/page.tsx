@@ -1,4 +1,11 @@
 import HomeLinks from "@/components/HomeLinks";
+import {
+  ImageCaption,
+  ImageGenerator,
+  VideoCaption,
+  VideoGenerator,
+} from "@/constants/HomeLinksIcons";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -14,8 +21,8 @@ const Home = () => {
                 Complete Various Tasks with Our Powerful AI
               </p>
               <div className="mb-4 flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                <a
-                  href="#"
+                <Link
+                  href="/about"
                   className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
                 >
                   Get started
@@ -34,7 +41,7 @@ const Home = () => {
                       d="M1 5h12m0 0L9 1m4 4L9 9"
                     />
                   </svg>
-                </a>
+                </Link>
                 {/* <a
                   href="#"
                   className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
@@ -46,18 +53,22 @@ const Home = () => {
                 <HomeLinks
                   link={"/caption/image"}
                   title={"Image Caption Generator"}
+                  icon={<ImageCaption />}
                 />
                 <HomeLinks
                   link={"/caption/video"}
                   title={"Video Caption Generator"}
+                  icon={<VideoCaption />}
                 />
                 <HomeLinks
                   link={"/"}
                   title={"Image Generator"}
+                  icon={<ImageGenerator />}
                 />
                 <HomeLinks
                   link={"/"}
                   title={"Video Generator"}
+                  icon={<VideoGenerator />}
                 />
                 {/* <HomeLinks
                   link={"/caption/image"}
