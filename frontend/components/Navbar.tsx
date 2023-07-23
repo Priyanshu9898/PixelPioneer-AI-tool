@@ -16,7 +16,7 @@ const Navbar = () => {
             </Link>
 
             <div className="flex items-center md:order-2 gap-x-4">
-              <DarkThemeToggle />
+              <DarkThemeToggle/>
               <button
                 type="button"
                 className="hidden md:flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
