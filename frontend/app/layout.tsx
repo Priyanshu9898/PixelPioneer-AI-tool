@@ -1,9 +1,9 @@
-import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import NavbarWithSidebar from "@/components/NavbarWithSidebar";
 
+
+import Helper from "@/utils/Helper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,11 +16,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
-        <NavbarWithSidebar />
+        <Helper />
         {children}
       </body>
     </html>

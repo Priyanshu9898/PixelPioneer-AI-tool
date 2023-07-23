@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 
 const HomeLinks: React.FC<LinkProp> = ({ link, title, icon }) => {
-  console.log(icon);
   return (
     <Link
       href={link}

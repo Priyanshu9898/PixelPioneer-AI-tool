@@ -10,7 +10,7 @@ import Link from "next/link";
 const Home = () => {
   return (
     <>
-      <div className="p-4 sm:ml-64 dark:bg-gray-900 h-screen">
+      <div className="p-4 sm:ml-64 dark:bg-gray-900 min-h-screen">
         <div className="p-4 rounded-lg mt-14 dark:bg-gray-900">
           <section className="bg-white dark:bg-gray-900 py-2">
             <div className=" px-4 mx-auto max-w-screen-xl text-center">
@@ -23,7 +23,7 @@ const Home = () => {
               <div className="mb-4 flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                 <Link
                   href="/about"
-                  className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                  className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center rounded-lg text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 mr-2 mb-2"
                 >
                   Get started
                   <svg
@@ -35,19 +35,14 @@ const Home = () => {
                   >
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M1 5h12m0 0L9 1m4 4L9 9"
                     />
                   </svg>
                 </Link>
-                {/* <a
-                  href="#"
-                  className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-                >
-                  Learn more
-                </a> */}
+                
               </div>
               <div>
                 <HomeLinks
@@ -70,10 +65,7 @@ const Home = () => {
                   title={"Video Generator"}
                   icon={<VideoGenerator />}
                 />
-                {/* <HomeLinks
-                  link={"/caption/image"}
-                  title={"Image Caption Generator"}
-                /> */}
+                
               </div>
             </div>
           </section>

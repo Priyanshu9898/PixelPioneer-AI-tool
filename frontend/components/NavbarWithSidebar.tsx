@@ -187,9 +187,9 @@ const NavbarWithSidebar = () => {
                   >
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="m1 1 4 4 4-4"
                     />
                   </svg>
@@ -332,7 +332,7 @@ const NavbarWithSidebar = () => {
               </li> */}
               <li>
                 <Link
-                  href="#"
+                  href="/login"
                   className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                 >
                   <svg
@@ -355,7 +355,7 @@ const NavbarWithSidebar = () => {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/register"
                   className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                 >
                   <svg
