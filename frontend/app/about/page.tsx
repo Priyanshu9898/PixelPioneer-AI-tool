@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className="p-4 sm:ml-64 dark:bg-gray-900 overflow-auto dark:text-white h-screen">
       <div className="p-4 rounded-lg mt-14 dark:bg-gray-900">
-        <h1 className="text-4xl font-bold mb-8">About Genius</h1>
+        <h1 className="text-4xl font-bold mb-8">About PixelPioneer</h1>
         <main className="container mx-auto p-4 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 overflow-hidden">
           <section
             id="image-caption-generator"
