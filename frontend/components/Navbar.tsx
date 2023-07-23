@@ -11,7 +11,7 @@ const Navbar = () => {
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <Link href="/" className="items-center flex">
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Caption Generator
+                Genius
               </span>
             </Link>
 

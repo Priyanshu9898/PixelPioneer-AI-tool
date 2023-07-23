@@ -41,7 +41,7 @@ const NavbarWithSidebar = () => {
                     alt="FlowBite Logo"
                   />
                   <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
-                    Caption Generator
+                    Genius
                   </span>
                 </Link>
               </div>
@@ -311,11 +311,11 @@ const NavbarWithSidebar = () => {
                   <span className="flex-1 ml-3 whitespace-nowrap">Contact</span>
                 </Link>
               </li>
-              
+
               <li>
                 <Link
                   href="/register"
-                  className="hover:text-red-500 flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                  className="hover:text-red-500 dark:hover:text-red-500 flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
