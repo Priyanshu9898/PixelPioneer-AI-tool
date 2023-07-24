@@ -2,7 +2,6 @@ import { NextResponse, NextRequest } from "next/server"
 import prisma from "../../lib/prismadb";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { generateJWTToken } from "@/middleware/generateToken";
 interface UserRequestBody {
     email: string;
     password: string;
@@ -40,7 +39,7 @@ export const POST = async (req: NextRequest) => {
                 email: user.email
             }
 
-            const token = await generateJWTToken(tokenData);
+            const token = jwt.sign(tokenData, process.env.JWT_SECRET!, { expiresIn: '15d' });
             
             const response = NextResponse.json({ success: true, "message": "User Logged in successfully", user: user, token: token }, { status: 201 });
             response.cookies.set("token", token, {httpOnly: true});

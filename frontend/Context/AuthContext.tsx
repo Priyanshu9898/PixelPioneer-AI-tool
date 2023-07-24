@@ -61,16 +61,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setIsLoading(true);
       const response = await axios.post("/api/login", data);
 
+      setUser(response.data.user);
+
+      sessionStorage.setItem("user", JSON.stringify(response.data.user));
+      sessionStorage.setItem("token", JSON.stringify(response.data.token));
+
       toast.success(`${response.data?.message}`, {
         style: toastStyle,
       });
 
       // console.log(response.data);
 
-      setUser(response.data.user);
-
-      sessionStorage.setItem("user", JSON.stringify(response.data.user));
-      sessionStorage.setItem("token", JSON.stringify(response.data.token));
 
       console.log("heyy", response.data.user);
 
@@ -144,6 +145,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       sessionStorage.removeItem("token");
       toast.success("Logged Out Successfully!", { style: toastStyle });
       router.push("/login");
+      router.refresh();
     } catch (err) {
       toast.error("Uh oh! Something went wrong.", { style: toastStyle });
     }

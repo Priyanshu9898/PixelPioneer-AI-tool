@@ -1,10 +1,17 @@
 "use client";
 
+import { useAuth } from "@/Context/AuthContext";
 import { DarkThemeToggle, Flowbite } from "flowbite-react";
 import Link from "next/link";
 import React from "react";
 
 const NavbarWithSidebar = () => {
+
+  const {logout} = useAuth();
+
+  const handleLogout = () => {
+    logout();
+  }
   return (
     <>
       <Flowbite>
@@ -368,7 +375,8 @@ const NavbarWithSidebar = () => {
 
               <li>
                 <Link
-                  href="/register"
+                  href=""
+                  onClick={handleLogout}
                   className="hover:text-red-500 dark:hover:text-red-500 flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                 >
                   <svg

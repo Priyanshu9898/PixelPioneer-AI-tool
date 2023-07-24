@@ -6,7 +6,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const Register = () => {
-  const { login } = useAuth();
+  const { register } = useAuth();
 
   const [data, setData] = useState<RegisterData>({
     name: "",
@@ -26,7 +26,7 @@ const Register = () => {
 
     console.log(data);
 
-    login(data, setIsLoading);
+    register(data, setIsLoading);
 
     setData({
       name: "",
@@ -118,9 +118,9 @@ const Register = () => {
                     Confirm password
                   </label>
                   <input
-                    type="confirm-password"
+                    type="password"
                     name="confirmPassword"
-                    id="confirm-password"
+                    id="password"
                     onChange={handleChange}
                     value={data.confirmPassword}
                     placeholder="••••••••"
