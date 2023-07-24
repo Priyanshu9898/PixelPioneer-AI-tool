@@ -1,6 +1,5 @@
 "use client";
 
-
 import { LoginData, RegisterData, User } from "@/types/Auth";
 import { toastStyle } from "@/utils/ToastStyle";
 import axios from "axios";
@@ -15,19 +14,14 @@ import React, {
 } from "react";
 import { toast } from "react-hot-toast";
 
-
 type AuthContextData = {
   user: User | null;
-  login: (
-    data: LoginData,
-    setIsLoading: (arg: boolean) => void
-  ) => void;
+  login: (data: LoginData, setIsLoading: (arg: boolean) => void) => void;
   register: (data: RegisterData, setIsLoading: (arg: boolean) => void) => void;
   logout: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextData | undefined>(undefined);
-
 
 type AuthProviderProps = {
   children: ReactNode;
@@ -40,11 +34,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-
-      const storedUser = sessionStorage.getItem('user');
+      const storedUser = sessionStorage.getItem("user");
       // If there is stored user data, update our state with it
       if (storedUser !== null) {
-
         console.log(JSON.parse(storedUser));
         setUser(JSON.parse(storedUser));
       }
@@ -52,12 +44,19 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     fetchUser();
   }, []);
-  
 
   const login = async (
     data: LoginData,
     setIsLoading: (arg0: boolean) => void
   ) => {
+    const { email, password } = data;
+
+    if (!email || !password) {
+      toast.error(`Please enter all the fields`, {
+        style: toastStyle,
+      });
+    }
+
     try {
       setIsLoading(true);
       const response = await axios.post("/api/login", data);
@@ -68,19 +67,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
       // console.log(response.data);
 
-
       setUser(response.data.user);
 
-      sessionStorage.setItem('user', JSON.stringify(response.data.user));
-      sessionStorage.setItem('token', JSON.stringify(response.data.token));
-      
-      console.log("heyy", response.data.user)
-      
+      sessionStorage.setItem("user", JSON.stringify(response.data.user));
+      sessionStorage.setItem("token", JSON.stringify(response.data.token));
+
+      console.log("heyy", response.data.user);
+
       setIsLoading(false);
 
       router.push("/");
       router.refresh();
-
     } catch (err) {
       toast.error("Invalid Credentials!", {
         style: toastStyle,
@@ -90,13 +87,27 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
-
-  const register = async (data: RegisterData,
+  const register = async (
+    data: RegisterData,
     setIsLoading: (arg0: boolean) => void
   ) => {
+    const { name, email, password, confirmPassword } = data;
+
+    if (!name || !email || !password || !confirmPassword) {
+      toast.error(`Please enter all the fields`, {
+        style: toastStyle,
+      });
+    }
+
+    if (password !== confirmPassword) {
+      toast.error(`Password does not match`, {
+        style: toastStyle,
+      });
+    }
+
     try {
       setIsLoading(true);
-      const response = await axios.post("/api/login", data);
+      const response = await axios.post("/api/register", data);
 
       toast.success(`${response.data?.message}`, {
         style: toastStyle,
@@ -104,19 +115,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
       // console.log(response.data);
 
-
       setUser(response.data.user);
 
-      sessionStorage.setItem('user', JSON.stringify(response.data.user));
-      sessionStorage.setItem('token', JSON.stringify(response.data.token));
-      
-      console.log("heyy", response.data.user)
-      
+      sessionStorage.setItem("user", JSON.stringify(response.data.user));
+      sessionStorage.setItem("token", JSON.stringify(response.data.token));
+
+      console.log("heyy", response.data.user);
+
       setIsLoading(false);
 
       router.push("/");
       router.refresh();
-
     } catch (err) {
       toast.error(`${err}`, {
         style: toastStyle,
@@ -131,8 +140,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       const response = await axios.get("/api/logout");
       console.log(response.data);
       setUser(null);
-      sessionStorage.removeItem('user');
-      sessionStorage.removeItem('token');
+      sessionStorage.removeItem("user");
+      sessionStorage.removeItem("token");
       toast.success("Logged Out Successfully!", { style: toastStyle });
       router.push("/login");
     } catch (err) {
@@ -148,7 +157,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 };
 
 export const useAuth = () => {
-  const context =  useContext(AuthContext);
+  const context = useContext(AuthContext);
 
   if (context === undefined) {
     throw new Error("useAuth must be used within an AuthProvider");
