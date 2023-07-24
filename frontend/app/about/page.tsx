@@ -5,7 +5,7 @@ const About = () => {
     <div className="p-4 sm:ml-64 dark:bg-gray-900 overflow-auto dark:text-white h-screen">
       <div className="p-4 rounded-lg mt-14 dark:bg-gray-900">
         <h1 className="text-4xl font-bold mb-8">About PixelPioneer</h1>
-        <main className="container mx-auto p-4 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 overflow-hidden">
+        <main className="container mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 overflow-hidden">
           <section
             id="image-caption-generator"
             className="p-4 md:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700"

@@ -176,7 +176,7 @@ const NavbarWithSidebar = () => {
                   </svg>
 
                   <span className="flex-1 ml-3 text-left whitespace-nowrap">
-                    Captions
+                    Caption Generator
                   </span>
                   <svg
                     className="w-3 h-3"
@@ -260,6 +260,50 @@ const NavbarWithSidebar = () => {
 
                   <span className="flex-1 ml-3 whitespace-nowrap">
                     Video Generator
+                  </span>
+                  <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                    Pro
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+</svg>
+
+
+                  <span className="flex-1 ml-3 whitespace-nowrap">
+                    Music Generator
+                  </span>
+                  <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                    Pro
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/"
+                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M14.447 3.027a.75.75 0 01.527.92l-4.5 16.5a.75.75 0 01-1.448-.394l4.5-16.5a.75.75 0 01.921-.526zM16.72 6.22a.75.75 0 011.06 0l5.25 5.25a.75.75 0 010 1.06l-5.25 5.25a.75.75 0 11-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 010-1.06zm-9.44 0a.75.75 0 010 1.06L2.56 12l4.72 4.72a.75.75 0 11-1.06 1.06L.97 12.53a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+
+                  <span className="flex-1 ml-3 whitespace-nowrap">
+                    Code Generator
                   </span>
                   <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
                     Pro

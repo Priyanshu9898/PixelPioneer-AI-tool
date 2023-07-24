@@ -1,7 +1,9 @@
 import HomeLinks from "@/components/HomeLinks";
 import {
+  CodeGenerator,
   ImageCaption,
   ImageGenerator,
+  MusicGenerator,
   VideoCaption,
   VideoGenerator,
 } from "@/constants/HomeLinksIcons";
@@ -10,7 +12,7 @@ import Link from "next/link";
 const Home = () => {
   return (
     <>
-      <div className="p-4 sm:ml-64 dark:bg-gray-900 min-h-screen">
+      <div className="p-4 sm:ml-64 dark:bg-gray-900 min-h-screen scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100">
         <div className="p-4 rounded-lg mt-14 dark:bg-gray-900">
           <section className="bg-white dark:bg-gray-900 py-2">
             <div className=" px-4 mx-auto max-w-screen-xl text-center">
@@ -42,7 +44,6 @@ const Home = () => {
                     />
                   </svg>
                 </Link>
-                
               </div>
               <div>
                 <HomeLinks
@@ -65,7 +66,16 @@ const Home = () => {
                   title={"Video Generator"}
                   icon={<VideoGenerator />}
                 />
-                
+                <HomeLinks
+                  link={"/"}
+                  title={"Music Generator"}
+                  icon={<MusicGenerator />}
+                />
+                <HomeLinks
+                  link={"/"}
+                  title={"Code Generator"}
+                  icon={<CodeGenerator />}
+                />
               </div>
             </div>
           </section>

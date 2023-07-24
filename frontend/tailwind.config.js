@@ -17,6 +17,7 @@ module.exports = {
   },
   darkMode: 'class',
   plugins: [
-    require("flowbite/plugin")
+    require("flowbite/plugin"),
+    require('tailwind-scrollbar')
   ],
 }
