@@ -4,6 +4,7 @@ import { useAuth } from "@/Context/AuthContext";
 import { RegisterData } from "@/types/Auth";
 import Link from "next/link";
 import React, { useState } from "react";
+import 'flowbite';
 
 const Register = () => {
   const { register } = useAuth();

@@ -4,6 +4,7 @@ import { useAuth } from "@/Context/AuthContext";
 import { LoginData } from "@/types/Auth";
 import Link from "next/link";
 import React, { useState } from "react";
+import 'flowbite';
 
 const Login = () => {
   const { login } = useAuth();
@@ -29,7 +30,7 @@ const Login = () => {
       email: "",
       password: "",
     });
-    
+
   };
 
   return (

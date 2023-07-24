@@ -3,15 +3,33 @@
 import { useAuth } from "@/Context/AuthContext";
 import { DarkThemeToggle, Flowbite } from "flowbite-react";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { SubMenuOpenState } from "@/types/Home";
 
 const NavbarWithSidebar = () => {
+  const router = useRouter();
 
-  const {logout} = useAuth();
+  const [subMenuOpen, setSubMenuOpen] = useState<SubMenuOpenState>({});
+
+  useEffect(() => {
+    router.refresh();
+  }, []);
+
+  const { logout } = useAuth();
 
   const handleLogout = () => {
     logout();
-  }
+  };
   return (
     <>
       <Flowbite>
@@ -55,78 +73,29 @@ const NavbarWithSidebar = () => {
               <div className="flex items-center">
                 <DarkThemeToggle />
                 <div className="flex items-center ml-3">
-                  <div>
-                    <button
-                      type="button"
-                      className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                      aria-expanded="false"
-                      data-dropdown-toggle="dropdown-user"
-                    >
-                      <span className="sr-only">Open user menu</span>
-                      <img
-                        className="w-8 h-8 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                        alt="user photo"
-                      />
-                    </button>
-                  </div>
-                  <div
-                    className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
-                    id="dropdown-user"
-                  >
-                    <div className="px-4 py-3" role="none">
-                      <p
-                        className="text-sm text-gray-900 dark:text-white"
-                        role="none"
+                  <DropdownMenu>
+                    <DropdownMenuTrigger>
+                      <Avatar>
+                        <AvatarImage src="" />
+                        <AvatarFallback className="bg-sideBar text-gray-50 dark:text-gray-50 dark:bg-blue-600 bg-blue-900">
+                          PM
+                        </AvatarFallback>
+                      </Avatar>
+                      {/* <UserAvatar image="" /> */}
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuItem>
+                        <Link href="/profile">Profile</Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem
+                        onClick={handleLogout}
+                        className="cursor-pointer hover:text-red-500"
                       >
-                        Priyanshu Malaviya
-                      </p>
-                      <p
-                        className="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
-                        role="none"
-                      >
-                        priyanshumalaviya9210@gmail.com
-                      </p>
-                    </div>
-                    <ul className="py-1" role="none">
-                      <li>
-                        <Link
-                          href="#"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                          role="menuitem"
-                        >
-                          Dashboard
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="#"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                          role="menuitem"
-                        >
-                          Settings
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="#"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                          role="menuitem"
-                        >
-                          Earnings
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="#"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                          role="menuitem"
-                        >
-                          Sign out
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
+                        Logout
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               </div>
             </div>
@@ -164,8 +133,12 @@ const NavbarWithSidebar = () => {
                 <button
                   type="button"
                   className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                  aria-controls="dropdown-example"
-                  data-collapse-toggle="dropdown-example"
+                  onClick={() =>
+                    setSubMenuOpen({
+                      ...subMenuOpen,
+                      [1]: !subMenuOpen[1],
+                    })
+                  }
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +159,11 @@ const NavbarWithSidebar = () => {
                     Caption Generator
                   </span>
                   <svg
-                    className="w-3 h-3"
+                    className={`w-3 h-3 ${
+                      subMenuOpen[1]
+                        ? "rotate-180 duration-200 z-10"
+                        : "duration-200"
+                    }`}
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -201,7 +178,12 @@ const NavbarWithSidebar = () => {
                     />
                   </svg>
                 </button>
-                <ul id="dropdown-example" className="hidden py-2 space-y-2">
+
+                <ul
+                  className={`${
+                    subMenuOpen[1] ? "block" : "hidden"
+                  } py-2 space-y-2`}
+                >
                   <li>
                     <Link
                       href="/caption/image"

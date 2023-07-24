@@ -13,6 +13,7 @@ import React, {
   useEffect,
 } from "react";
 import { toast } from "react-hot-toast";
+import 'flowbite';
 
 type AuthContextData = {
   user: User | null;

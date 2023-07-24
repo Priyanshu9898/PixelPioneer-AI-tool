@@ -8,6 +8,7 @@ import {
   VideoGenerator,
 } from "@/constants/HomeLinksIcons";
 import Link from "next/link";
+import 'flowbite';
 
 const Home = () => {
   return (

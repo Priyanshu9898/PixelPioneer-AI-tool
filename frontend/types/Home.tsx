@@ -5,3 +5,7 @@ export interface LinkProp {
   title: string;
   icon: any
 }
+
+export interface SubMenuOpenState {
+  [key: number]: boolean;
+};

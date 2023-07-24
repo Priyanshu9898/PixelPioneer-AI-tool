@@ -6,6 +6,7 @@ import Helper from "@/utils/Helper";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "@/Context/AuthContext";
 const inter = Inter({ subsets: ["latin"] });
+import 'flowbite';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,13 +20,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+       
+      </head>
       <body className={inter.className}>
         <AuthProvider>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
           <Helper />
           {children}
           <Toaster />
         </AuthProvider>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
       </body>
     </html>
   );
