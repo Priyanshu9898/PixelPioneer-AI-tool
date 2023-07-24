@@ -8,6 +8,7 @@ export function middleware(request: NextRequest) {
 
   const token = request.cookies.get("token")?.value || "";
 
+
   const isPublicPath = path === "/login" || path === "/register";
 
   if(isPublicPath && token){
@@ -26,7 +27,6 @@ export const config = {
     '/login',
     '/register',
     '/caption/:path*',
-    '/:path*',
     '/profile/:path*',
   ],
 }
