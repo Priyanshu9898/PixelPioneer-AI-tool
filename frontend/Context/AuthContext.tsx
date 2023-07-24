@@ -1,7 +1,7 @@
 "use client";
 
 
-import { User } from "@/types/Auth";
+import { LoginData, RegisterData, User } from "@/types/Auth";
 import { toastStyle } from "@/utils/ToastStyle";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -19,10 +19,10 @@ import { toast } from "react-hot-toast";
 type AuthContextData = {
   user: User | null;
   login: (
-    email: string,
-    password: string,
+    data: LoginData,
     setIsLoading: (arg: boolean) => void
   ) => void;
+  register: (data: RegisterData, setIsLoading: (arg: boolean) => void) => void;
   logout: () => Promise<void>;
 };
 
@@ -55,16 +55,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   
 
   const login = async (
-    email: any,
-    password: any,
+    data: LoginData,
     setIsLoading: (arg0: boolean) => void
   ) => {
     try {
       setIsLoading(true);
-      const response = await axios.post("/api/login", {
-        email: email,
-        password: password,
-      });
+      const response = await axios.post("/api/login", data);
 
       toast.success(`${response.data?.message}`, {
         style: toastStyle,
@@ -94,6 +90,42 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
+
+  const register = async (data: RegisterData,
+    setIsLoading: (arg0: boolean) => void
+  ) => {
+    try {
+      setIsLoading(true);
+      const response = await axios.post("/api/login", data);
+
+      toast.success(`${response.data?.message}`, {
+        style: toastStyle,
+      });
+
+      // console.log(response.data);
+
+
+      setUser(response.data.user);
+
+      sessionStorage.setItem('user', JSON.stringify(response.data.user));
+      sessionStorage.setItem('token', JSON.stringify(response.data.token));
+      
+      console.log("heyy", response.data.user)
+      
+      setIsLoading(false);
+
+      router.push("/");
+      router.refresh();
+
+    } catch (err) {
+      toast.error(`${err}`, {
+        style: toastStyle,
+      });
+      setUser(null);
+      setIsLoading(false);
+    }
+  };
+
   const logout = async () => {
     try {
       const response = await axios.get("/api/logout");
@@ -109,7 +141,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, register }}>
       {children}
     </AuthContext.Provider>
   );
