@@ -4,7 +4,9 @@ import { useAuth } from "@/Context/AuthContext";
 import { LoginData } from "@/types/Auth";
 import Link from "next/link";
 import React, { useState } from "react";
-import 'flowbite';
+import "flowbite";
+import { Flowbite } from "flowbite-react";
+import ToggleTheme from "@/components/ToggleTheme";
 
 const Login = () => {
   const { login } = useAuth();
@@ -30,13 +32,12 @@ const Login = () => {
       email: "",
       password: "",
     });
-
   };
 
   return (
     <>
       <section className="bg-gray-50 dark:bg-gray-900 min-h-screen">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-col items-center justify-center px-6 mt-16 md:mt-0 py-8 mx-auto md:h-screen lg:py-0">
           <Link
             href="/"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"

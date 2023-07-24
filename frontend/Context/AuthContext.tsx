@@ -13,7 +13,6 @@ import React, {
   useEffect,
 } from "react";
 import { toast } from "react-hot-toast";
-import 'flowbite';
 
 type AuthContextData = {
   user: User | null;
@@ -38,7 +37,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       const storedUser = sessionStorage.getItem("user");
       // If there is stored user data, update our state with it
       if (storedUser !== null) {
-        console.log(JSON.parse(storedUser));
         setUser(JSON.parse(storedUser));
       }
     };
@@ -70,11 +68,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       toast.success(`${response.data?.message}`, {
         style: toastStyle,
       });
-
-      // console.log(response.data);
-
-
-      console.log("heyy", response.data.user);
 
       setIsLoading(false);
 
@@ -115,14 +108,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         style: toastStyle,
       });
 
-      // console.log(response.data);
-
       setUser(response.data.user);
 
       sessionStorage.setItem("user", JSON.stringify(response.data.user));
       sessionStorage.setItem("token", JSON.stringify(response.data.token));
-
-      console.log("heyy", response.data.user);
 
       setIsLoading(false);
 
@@ -140,7 +129,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const logout = async () => {
     try {
       const response = await axios.get("/api/logout");
-      console.log(response.data);
+    //   console.log(response.data);
       setUser(null);
       sessionStorage.removeItem("user");
       sessionStorage.removeItem("token");
