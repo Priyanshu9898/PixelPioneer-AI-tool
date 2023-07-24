@@ -79,15 +79,21 @@ const NavbarWithSidebar = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="bg-transparent hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 outline-none"
+                className="bg-transparent dark:hidden hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 outline-none"
+                onClick={() => setTheme("dark")}
               >
                 <Sun
-                  className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-                  onClick={() => setTheme("dark")}
+                  className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 "
                 />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hidden dark:flex bg-transparent hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 outline-none"
+                onClick={() => setTheme("light")}
+              >
                 <Moon
                   className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-                  onClick={() => setTheme("light")}
                 />
                 <span className="sr-only">Toggle theme</span>
               </Button>
