@@ -2,6 +2,7 @@ import { useAuth } from "@/Context/AuthContext";
 import { SubMenuOpenState } from "@/types/Home";
 import Link from "next/link";
 import React, { FC, useState } from "react";
+import { closeSheet } from "./ui/sheet";
 
 const SidebarItemsMobile: FC = () => {
   const { logout } = useAuth();
@@ -12,9 +13,9 @@ const SidebarItemsMobile: FC = () => {
   };
   return (
     <>
-      <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+      <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800 mt-5">
         <ul className="space-y-4 font-medium">
-          <li>
+          <li onClick={closeSheet}>
             <Link
               href="/"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -87,7 +88,7 @@ const SidebarItemsMobile: FC = () => {
                 subMenuOpen[1] ? "block" : "hidden"
               } py-2 space-y-2`}
             >
-              <li>
+              <li onClick={closeSheet}>
                 <Link
                   href="/caption/image"
                   className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -95,7 +96,7 @@ const SidebarItemsMobile: FC = () => {
                   Image
                 </Link>
               </li>
-              <li>
+              <li onClick={closeSheet}>
                 <Link
                   href="/caption/video"
                   className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -105,7 +106,7 @@ const SidebarItemsMobile: FC = () => {
               </li>
             </ul>
           </li>
-          <li>
+          <li onClick={closeSheet}>
             <Link
               href="/"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -132,7 +133,7 @@ const SidebarItemsMobile: FC = () => {
             </Link>
           </li>
 
-          <li>
+          <li onClick={closeSheet}>
             <Link
               href="/"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -158,7 +159,7 @@ const SidebarItemsMobile: FC = () => {
             </Link>
           </li>
 
-          <li>
+          <li onClick={closeSheet}>
             <Link
               href="/"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -185,7 +186,7 @@ const SidebarItemsMobile: FC = () => {
             </Link>
           </li>
 
-          <li>
+          <li onClick={closeSheet}>
             <Link
               href="/"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -210,8 +211,7 @@ const SidebarItemsMobile: FC = () => {
             </Link>
           </li>
 
-          
-          <li>
+          <li onClick={closeSheet}>
             <Link
               href="/about"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -234,7 +234,7 @@ const SidebarItemsMobile: FC = () => {
               <span className="flex-1 ml-3 whitespace-nowrap">About Us</span>
             </Link>
           </li>
-          <li>
+          <li onClick={closeSheet}>
             <Link
               href="/contact"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"

@@ -4,9 +4,7 @@ import { useAuth } from "@/Context/AuthContext";
 import { RegisterData } from "@/types/Auth";
 import Link from "next/link";
 import React, { useState } from "react";
-import 'flowbite';
-import ToggleTheme from "@/components/ToggleTheme";
-import { Flowbite } from "flowbite-react";
+import "flowbite";
 
 const Register = () => {
   const { register } = useAuth();
@@ -40,7 +38,6 @@ const Register = () => {
   };
   return (
     <>
-
       <section className="bg-gray-50 dark:bg-gray-900 min-h-screen">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <Link
@@ -185,7 +182,6 @@ const Register = () => {
           </div>
         </div>
       </section>
-
     </>
   );
 };

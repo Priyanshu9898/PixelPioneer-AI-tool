@@ -5,8 +5,7 @@ import { LoginData } from "@/types/Auth";
 import Link from "next/link";
 import React, { useState } from "react";
 import "flowbite";
-import { Flowbite } from "flowbite-react";
-import ToggleTheme from "@/components/ToggleTheme";
+
 
 const Login = () => {
   const { login } = useAuth();
