@@ -1,3 +1,5 @@
+"use client";
+
 import HomeLinks from "@/components/HomeLinks";
 import {
   CodeGenerator,
@@ -8,9 +10,16 @@ import {
   VideoGenerator,
 } from "@/constants/HomeLinksIcons";
 import Link from "next/link";
-import 'flowbite';
+import "flowbite";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.refresh();
+  }, []);
   return (
     <>
       <div className="p-4 sm:ml-64 dark:bg-gray-900 min-h-screen scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100">
