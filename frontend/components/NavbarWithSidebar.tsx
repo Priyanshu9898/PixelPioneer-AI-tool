@@ -20,6 +20,7 @@ import { Button } from "./ui/button";
 import { Moon, Sun } from "lucide-react";
 import Sidebar from "./Sidebar";
 import SidebarItems from "./SidebarItems";
+import ProfileDropdown from "./ProfileDropdown";
 
 const NavbarWithSidebar = () => {
   const router = useRouter();
@@ -28,11 +29,7 @@ const NavbarWithSidebar = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const [userName, setUserName] = useState<null | string>(null);
 
-  const { logout } = useAuth();
-
-  const handleLogout: () => void = () => {
-    logout();
-  };
+  
 
   return (
     <>
@@ -75,29 +72,7 @@ const NavbarWithSidebar = () => {
               </Button>
 
               <div className="flex items-center ml-3">
-                <DropdownMenu>
-                  <DropdownMenuTrigger>
-                    <Avatar>
-                      <AvatarImage src="" />
-                      <AvatarFallback className="bg-sideBar text-gray-50 dark:text-gray-50 dark:bg-blue-600 bg-blue-900">
-                        PM
-                      </AvatarFallback>
-                    </Avatar>
-                    {/* <UserAvatar image="" /> */}
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="dark:bg-gray-700">
-                    <DropdownMenuItem>
-                      <Link href="/profile">Profile</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem
-                      onClick={handleLogout}
-                      className="cursor-pointer hover:text-red-500"
-                    >
-                      Logout
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                <ProfileDropdown />
               </div>
             </div>
           </div>

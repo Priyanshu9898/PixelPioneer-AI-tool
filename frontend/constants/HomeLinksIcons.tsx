@@ -1,6 +1,11 @@
 "use client";
 
-export const ImageCaption = () => {
+import { HomeLogoProp } from "@/types/Home";
+import {FC} from "react";
+
+
+
+export const ImageCaption: FC<HomeLogoProp> = ({width, height}) => {
   return (
     <>
       <svg
@@ -9,7 +14,7 @@ export const ImageCaption = () => {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-6 h-6"
+        className={`${width ? `w-${width}`: "w-6"} ${height ? `h-${height}`: "h-6"}`}
       >
         <path
           strokeLinecap="round"

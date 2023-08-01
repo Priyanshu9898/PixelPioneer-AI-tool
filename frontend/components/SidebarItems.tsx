@@ -3,9 +3,13 @@
 import { useAuth } from "@/Context/AuthContext";
 import { SubMenuOpenState } from "@/types/Home";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { FC, useState } from "react";
 
 const SidebarItems: FC = () => {
+
+  const pathname = usePathname();
+
   const { logout } = useAuth();
   const [subMenuOpen, setSubMenuOpen] = useState<SubMenuOpenState>({});
 
@@ -26,10 +30,10 @@ const SidebarItems: FC = () => {
             <li>
               <Link
                 href="/"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${pathname === "/" ? "bg-gray-100 dark:bg-gray-700 group" : "text-zinc-600"}`}
               >
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                  className={`flex-shrink-0 w-5 h-5  transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white ${pathname === "/" ? "dark:text-white text-gray-800" : "text-gray-500 dark:text-gray-400 "}`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -117,7 +121,7 @@ const SidebarItems: FC = () => {
             <li>
               <Link
                 href="/"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${pathname === "/imageGenerator" ? "bg-gray-100 dark:bg-gray-700 group" : "text-zinc-600"}`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +147,7 @@ const SidebarItems: FC = () => {
             <li>
               <Link
                 href="/"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${pathname === "/videoGenerator" ? "bg-gray-100 dark:bg-gray-700 group" : "text-zinc-600"}`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +174,7 @@ const SidebarItems: FC = () => {
             <li>
               <Link
                 href="/"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${pathname === "/musicGenerator" ? "bg-gray-100 dark:bg-gray-700 group" : "text-zinc-600"}`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +202,7 @@ const SidebarItems: FC = () => {
             <li>
               <Link
                 href="/"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${pathname === "/codeGenerator" ? "bg-gray-100 dark:bg-gray-700 group" : "text-zinc-600"}`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +228,7 @@ const SidebarItems: FC = () => {
             <li>
               <Link
                 href="/about"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${pathname === "/about" ? "bg-gray-100 dark:bg-gray-700 group" : "text-zinc-600"}`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -247,7 +251,7 @@ const SidebarItems: FC = () => {
             <li>
               <Link
                 href="/contact"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${pathname === "/contact" ? "bg-gray-100 dark:bg-gray-700 group" : "text-zinc-600"}`}
               >
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
