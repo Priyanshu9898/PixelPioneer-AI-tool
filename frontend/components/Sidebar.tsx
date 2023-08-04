@@ -35,7 +35,7 @@ const Sidebar: FC = () => {
             </svg>
           </button>
         </SheetTrigger>
-        <SheetContent side={"left"} className="bg-gray-800">
+        <SheetContent side={"left"} className="dark:bg-gray-800">
           <SidebarItemsMobile />
         </SheetContent>
       </Sheet>

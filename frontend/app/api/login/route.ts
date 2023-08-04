@@ -2,6 +2,7 @@ import { NextResponse, NextRequest } from "next/server"
 import prisma from "../../lib/prismadb";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+
 interface UserRequestBody {
     email: string;
     password: string;
@@ -53,3 +54,4 @@ export const POST = async (req: NextRequest) => {
         return NextResponse.json({ success: false, "message": err }, { status: 500 });
     }
 }
+

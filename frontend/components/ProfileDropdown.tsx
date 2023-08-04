@@ -22,9 +22,9 @@ const ProfileDropdown: FC = () => {
         <DropdownMenuTrigger>
           <Avatar>
             <AvatarImage src="https://ui-avatars.com/api/?name=priyanshu+malaviya" />
-            {/* <AvatarFallback className="bg-sideBar text-gray-50 dark:text-gray-50 dark:bg-blue-600 bg-blue-900">
+            <AvatarFallback className="bg-sideBar text-gray-50 dark:text-gray-50 dark:bg-blue-600 bg-blue-900">
               PM
-            </AvatarFallback> */}
+            </AvatarFallback>
           </Avatar>
           {/* <UserAvatar image="" /> */}
         </DropdownMenuTrigger>

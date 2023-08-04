@@ -8,7 +8,7 @@ const About = () => {
         <main className="container mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 overflow-hidden">
           <section
             id="image-caption-generator"
-            className="p-4 md:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+            className="p-4 md:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-gray-500 dark:shadow-none hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <h2 className="text-2xl font-bold mb-4">Image Caption Generator</h2>
             <p className="prose dark:prose-dark max-w-none">
@@ -20,7 +20,7 @@ const About = () => {
           </section>
           <section
             id="video-caption-generator"
-            className="p-4 md:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+            className="p-4 md:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-gray-500 dark:shadow-none hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <h2 className="text-2xl font-bold mb-4">Video Caption Generator</h2>
             <p className="prose dark:prose-dark max-w-none">
@@ -32,7 +32,7 @@ const About = () => {
           </section>
           <section
             id="image-generator"
-            className="p-4 md:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+            className="p-4 md:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-gray-500 dark:shadow-none hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <h2 className="text-2xl font-bold mb-4">Image Generator</h2>
             <p className="prose dark:prose-dark max-w-none">
@@ -43,7 +43,7 @@ const About = () => {
           </section>
           <section
             id="video-generator"
-            className="p-4 md:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+            className="p-4 md:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-gray-500 dark:shadow-none hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <h2 className="text-2xl font-bold mb-4">Video Generator</h2>
             <p className="prose dark:prose-dark max-w-none">

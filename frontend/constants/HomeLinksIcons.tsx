@@ -1,11 +1,9 @@
 "use client";
 
 import { HomeLogoProp } from "@/types/Home";
-import {FC} from "react";
+import { FC } from "react";
 
-
-
-export const ImageCaption: FC<HomeLogoProp> = ({width, height}) => {
+export const ImageCaption: FC<HomeLogoProp> = ({ width, height }) => {
   return (
     <>
       <svg
@@ -14,7 +12,9 @@ export const ImageCaption: FC<HomeLogoProp> = ({width, height}) => {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className={`${width ? `w-${width}`: "w-6"} ${height ? `h-${height}`: "h-6"}`}
+        className={`${width ? `w-${width}` : "w-6"} ${
+          height ? `h-${height}` : "h-6"
+        }`}
       >
         <path
           strokeLinecap="round"
@@ -67,7 +67,7 @@ export const VideoGenerator = () => {
   );
 };
 
-export const ImageGenerator = () => {
+export const ImageGenerator: FC<HomeLogoProp> = ({ width, height }) => {
   return (
     <>
       <svg
@@ -76,7 +76,9 @@ export const ImageGenerator = () => {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-6 h-6"
+        className={`${width ? `w-${width}` : "w-6"} ${
+          height ? `h-${height}` : "h-6"
+        }`}
       >
         <path
           strokeLinecap="round"
@@ -88,14 +90,16 @@ export const ImageGenerator = () => {
   );
 };
 
-export const CodeGenerator = () => {
+export const CodeGenerator: FC<HomeLogoProp> = ({ width, height }) => {
   return (
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        className="w-6 h-6"
+        className={`${width ? `w-${width}` : "w-6"} ${
+          height ? `h-${height}` : "h-6"
+        }`}
       >
         <path
           fillRule="evenodd"

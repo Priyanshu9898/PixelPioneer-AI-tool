@@ -14,7 +14,7 @@ const SidebarItemsMobile: FC = () => {
   return (
     <>
       <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800 mt-5">
-        <ul className="space-y-4 font-medium">
+        <ul className="space-y-4 font-medium ">
           <li onClick={closeSheet}>
             <Link
               href="/"
@@ -108,7 +108,7 @@ const SidebarItemsMobile: FC = () => {
           </li>
           <li onClick={closeSheet}>
             <Link
-              href="/"
+              href="/imageGenerator"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <svg
@@ -188,7 +188,7 @@ const SidebarItemsMobile: FC = () => {
 
           <li onClick={closeSheet}>
             <Link
-              href="/"
+              href="/codeGenerator"
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <svg
